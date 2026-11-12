@@ -1,0 +1,1271 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#e5eedc">
+
+<title>Bhushan & Pragyansa | Wedding Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:#faf8f0;
+  --green:#e3eddc;
+  --green-dark:#567452;
+  --pink:#ce6e91;
+  --rose:#b65d7e;
+  --gold:#c39a54;
+  --brown:#35262e;
+  --text:#74615e;
+  --line:#eadfce;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  font-family:'Cormorant Garamond',serif;
+  background:var(--cream);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+button {
+  font:inherit;
+}
+
+img {
+  max-width:100%;
+  display:block;
+}
+
+.script {
+  font-family:'Great Vibes',cursive;
+}
+
+.small-heading {
+  font-family:'Poppins',sans-serif;
+  font-size:9px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#a38e80;
+}
+
+.script-heading {
+  font-family:'Great Vibes',cursive;
+  font-size:43px;
+  font-weight:400;
+  color:var(--rose);
+  text-align:center;
+}
+
+.section {
+  position:relative;
+  padding:85px 20px;
+  text-align:center;
+  overflow:hidden;
+}
+
+.section-inner {
+  max-width:1000px;
+  margin:auto;
+}
+
+.section-description {
+  font-size:17px;
+  line-height:1.8;
+  max-width:600px;
+  margin:15px auto 35px;
+}
+
+.ornament {
+  color:#d9a6a7;
+  font-size:18px;
+  margin:13px auto;
+}
+
+/* INTRO SCREEN */
+
+#loading {
+  position:fixed;
+  z-index:10000;
+  inset:0;
+  background:#b6cda9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:opacity 1.5s,visibility 1.5s;
+}
+
+#loading.hide {
+  opacity:0;
+  visibility:hidden;
+}
+
+.loading-envelope {
+  width:145px;
+  height:105px;
+  position:relative;
+  background:#e9eadb;
+  box-shadow:0 8px 25px #526a4940;
+  animation:floatEnvelope 2.5s ease-in-out infinite;
+}
+
+.loading-envelope:before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:#d5dec8;
+  clip-path:polygon(0 0,50% 55%,100% 0);
+}
+
+.loading-envelope:after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:#f3eddf;
+  clip-path:polygon(0 100%,50% 43%,100% 100%);
+}
+
+.envelope-seal {
+  position:absolute;
+  z-index:2;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:35px;
+  height:35px;
+  background:#c39a54;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:white;
+  font-size:14px;
+}
+
+@keyframes floatEnvelope {
+  0%,100% {transform:translateY(0)}
+  50% {transform:translateY(-10px)}
+}
+
+/* GLOBAL DECORATIONS */
+
+.floral-corner {
+  position:absolute;
+  width:170px;
+  height:190px;
+  opacity:.85;
+  pointer-events:none;
+  z-index:0;
+  background-size:contain;
+  background-repeat:no-repeat;
+}
+
+.floral-left {
+  left:0;
+  top:0;
+  background-image:
+  radial-gradient(ellipse at 15% 20%,#466b46 0 4%,transparent 5%),
+  radial-gradient(ellipse at 32% 35%,#799b6e 0 8%,transparent 9%),
+  radial-gradient(ellipse at 10% 48%,#6b8d60 0 10%,transparent 11%),
+  radial-gradient(ellipse at 40% 65%,#466b46 0 8%,transparent 9%),
+  radial-gradient(ellipse at 70% 15%,#b2c7a0 0 9%,transparent 10%);
+}
+
+.floral-right {
+  right:0;
+  bottom:0;
+  transform:rotate(180deg);
+  background-image:
+  radial-gradient(ellipse at 15% 20%,#466b46 0 4%,transparent 5%),
+  radial-gradient(ellipse at 32% 35%,#799b6e 0 8%,transparent 9%),
+  radial-gradient(ellipse at 10% 48%,#6b8d60 0 10%,transparent 11%),
+  radial-gradient(ellipse at 40% 65%,#466b46 0 8%,transparent 9%);
+}
+
+/* FLOATING FLOWERS */
+
+#particles {
+  position:fixed;
+  inset:0;
+  z-index:50;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.particle {
+  position:absolute;
+  top:-30px;
+  animation:fall linear forwards;
+  opacity:.85;
+}
+
+@keyframes fall {
+  0% {
+    transform:translate3d(0,-20px,0) rotate(0);
+    opacity:0;
+  }
+  10% {opacity:.9}
+  100% {
+    transform:translate3d(var(--drift),110vh,0) rotate(650deg);
+    opacity:0;
+  }
+}
+
+/* HERO */
+
+#hero {
+  min-height:100vh;
+  background:var(--cream);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:80px 20px;
+}
+
+.hero-content {
+  position:relative;
+  z-index:1;
+  width:100%;
+  max-width:750px;
+  text-align:center;
+}
+
+.ganesh {
+  width:42px;
+  height:42px;
+  object-fit:contain;
+  margin:0 auto 10px;
+}
+
+.invitation-intro {
+  font-family:'Playfair Display',serif;
+  font-size:12px;
+  line-height:1.8;
+  color:#ad7e82;
+}
+
+.hero-names {
+  margin:22px auto;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.hero-name {
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(60px,10vw,105px);
+  color:#b84f78;
+  line-height:1.1;
+  opacity:0;
+  transform:translateY(25px);
+  animation:nameReveal 1.5s ease forwards;
+}
+
+.hero-name:nth-child(2) {
+  animation-delay:.7s;
+}
+
+@keyframes nameReveal {
+  to {
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.hero-caption {
+  font-size:11px;
+  color:#9e8881;
+  margin-top:5px;
+  letter-spacing:1px;
+}
+
+.reveal-button {
+  display:inline-block;
+  margin-top:55px;
+  min-width:180px;
+  padding:17px 25px;
+  border:0;
+  border-radius:5px;
+  background:linear-gradient(110deg,#d9b77d,#bd914e);
+  color:white;
+  font-family:'Poppins',sans-serif;
+  font-size:9px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  box-shadow:0 9px 22px #a98a5630;
+  transition:.4s;
+}
+
+.reveal-button:hover {
+  transform:translateY(-4px);
+  box-shadow:0 12px 25px #a98a5650;
+}
+
+/* INVITATION REVEAL */
+
+#mainContent {
+  display:none;
+}
+
+#mainContent.active {
+  display:block;
+  animation:pageReveal 1.3s ease;
+}
+
+@keyframes pageReveal {
+  from {opacity:0;transform:translateY(15px)}
+  to {opacity:1;transform:translateY(0)}
+}
+
+/* COUNTDOWN */
+
+#countdown {
+  background:var(--cream);
+  padding-top:65px;
+  padding-bottom:75px;
+}
+
+.countdown-card {
+  display:inline-block;
+  min-width:230px;
+  padding:18px 35px;
+  border:1px solid #e6d6c4;
+  border-radius:7px;
+  background:#fbf7ed;
+  box-shadow:0 7px 18px #a98b5710;
+}
+
+.countdown-card .label {
+  font-family:'Poppins',sans-serif;
+  font-size:9px;
+  letter-spacing:2px;
+  color:#a48a76;
+}
+
+.countdown-card .date {
+  font-family:'Great Vibes',cursive;
+  font-size:29px;
+  color:#b45d7d;
+  margin-top:5px;
+}
+
+.timer {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:18px auto 0;
+}
+
+.timer-unit {
+  width:43px;
+  height:48px;
+  border:1px solid #eadfce;
+  border-radius:5px;
+  background:#fffdf7;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.timer-unit strong {
+  font-size:19px;
+  color:#b55e7e;
+  font-weight:500;
+}
+
+.timer-unit span {
+  font-family:'Poppins',sans-serif;
+  font-size:6px;
+  letter-spacing:1px;
+  color:#a18b7a;
+}
+
+/* COUPLE */
+
+#couple {
+  background:var(--cream);
+}
+
+.couple-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,280px));
+  justify-content:center;
+  gap:25px;
+  margin:35px auto;
+}
+
+.couple-card {
+  background:#fdfaf2;
+  border:1px solid #e9dfd1;
+  border-radius:9px;
+  padding:12px;
+  box-shadow:0 8px 25px #7d66530c;
+  transition:transform .7s,box-shadow .7s;
+}
+
+.couple-card:hover {
+  transform:translateY(-7px);
+  box-shadow:0 15px 30px #7d665320;
+}
+
+.card-title {
+  font-family:'Great Vibes',cursive;
+  font-size:26px;
+  color:#b65c7c;
+  margin:5px 0 12px;
+}
+
+.illustration {
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:5px;
+  background:#f1e8d9;
+}
+
+.profile-name {
+  margin:12px 0;
+  padding:8px;
+  background:#f8e9ef;
+  color:#a65373;
+  font-family:'Great Vibes',cursive;
+  font-size:29px;
+  border-radius:5px;
+}
+
+.tags {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:6px;
+  margin:10px 0;
+}
+
+.tag {
+  background:#fffdf7;
+  border:1px solid #eee4d9;
+  border-radius:20px;
+  padding:6px 4px;
+  font-family:'Poppins',sans-serif;
+  font-size:8px;
+  color:#8d8178;
+}
+
+.profile-caption {
+  font-size:14px;
+  font-style:italic;
+  line-height:1.6;
+  margin:10px 0;
+}
+
+/* INVITATION AND PHOTOS */
+
+.memory-section {
+  background:var(--cream);
+}
+
+.memory-image {
+  width:min(360px,90%);
+  margin:25px auto;
+  padding:10px;
+  border:1px solid #eadfd2;
+  background:#fffdf7;
+  box-shadow:0 8px 22px #00000012;
+  border-radius:5px;
+}
+
+.memory-image img {
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  border-radius:3px;
+}
+
+.memory-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,260px));
+  gap:22px;
+  justify-content:center;
+  margin:35px auto;
+}
+
+.memory-grid img {
+  width:100%;
+  max-height:360px;
+  object-fit:cover;
+  padding:8px;
+  background:white;
+  border:1px solid #eadfd2;
+  box-shadow:0 6px 20px #00000010;
+}
+
+.memory-caption {
+  font-family:'Great Vibes',cursive;
+  font-size:27px;
+  color:#b65c7c;
+  margin:12px 0;
+}
+
+/* GREEN INVITATION SECTION */
+
+.green-section {
+  background:var(--green);
+  padding:75px 20px;
+}
+
+.green-section .section-description {
+  color:#71806a;
+}
+
+.engagement-art {
+  width:min(530px,95%);
+  margin:30px auto;
+  border-radius:5px;
+  box-shadow:0 10px 25px #00000020;
+}
+
+.engagement-art img {
+  width:100%;
+  border-radius:5px;
+}
+
+/* FAMILIES */
+
+#families {
+  background:var(--green);
+  min-height:360px;
+}
+
+.family-box {
+  max-width:560px;
+  margin:30px auto;
+  padding:30px 20px;
+  border:1px solid #d4dfca;
+  background:#eaf0e4;
+  box-shadow:0 7px 20px #72816c10;
+}
+
+.family-box h3 {
+  font-family:'Great Vibes',cursive;
+  color:#a85d7a;
+  font-size:30px;
+  margin-bottom:15px;
+}
+
+.family-box p {
+  font-size:16px;
+  line-height:2;
+}
+
+/* VENUE */
+
+#venue {
+  background:var(--cream);
+}
+
+.map {
+  max-width:700px;
+  width:100%;
+  height:330px;
+  margin:30px auto;
+  border:7px solid white;
+  box-shadow:0 7px 22px #00000015;
+}
+
+.map iframe {
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.map-button {
+  display:inline-block;
+  text-decoration:none;
+  color:white;
+  background:linear-gradient(110deg,#d4ad6b,#b58b4c);
+  padding:14px 30px;
+  border-radius:5px;
+  font-family:'Poppins',sans-serif;
+  font-size:9px;
+  letter-spacing:2px;
+}
+
+/* FOOTER */
+
+footer {
+  background:var(--brown);
+  min-height:230px;
+  padding:65px 20px;
+  text-align:center;
+  color:#e8dcd9;
+}
+
+.footer-names {
+  font-family:'Great Vibes',cursive;
+  font-size:52px;
+  color:#f0d6d8;
+  margin:18px auto;
+}
+
+footer p {
+  font-size:14px;
+  line-height:1.9;
+}
+
+/* MUSIC */
+
+.music-control {
+  position:fixed;
+  z-index:500;
+  bottom:20px;
+  right:20px;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  border:0;
+  background:#59473f;
+  color:#fff;
+  font-size:17px;
+  box-shadow:0 3px 12px #0003;
+}
+
+.music-control.playing {
+  animation:musicPulse 1.2s infinite;
+}
+
+@keyframes musicPulse {
+  50% {box-shadow:0 0 0 8px #c39a5430}
+}
+
+/* SCROLL ANIMATIONS */
+
+.animate {
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity 1s ease,transform 1s ease;
+}
+
+.animate.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:650px) {
+  .section {padding:65px 16px}
+  .floral-corner {width:105px;height:125px}
+  .hero-name {font-size:68px}
+  .couple-grid {grid-template-columns:minmax(0,290px)}
+  .memory-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .memory-grid img {max-height:230px}
+  .script-heading {font-size:37px}
+  .countdown-card {min-width:215px}
+  .map {height:270px}
+  .footer-names {font-size:43px}
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="particles"></div>
+
+<!-- INITIAL LOADING SCREEN -->
+
+<div id="loading">
+  <div class="loading-envelope">
+    <div class="envelope-seal">♥</div>
+  </div>
+</div>
+
+<!-- HERO INVITATION -->
+
+<section id="hero">
+
+  <div class="floral-corner floral-left"></div>
+  <div class="floral-corner floral-right"></div>
+
+  <div class="hero-content">
+
+    <img class="ganesh" src="assets/ganesh.png" alt="Ganesh">
+
+    <p class="invitation-intro">
+      || Shree Ganeshaya Namah ||
+      <br>
+      With the blessings of the Almighty,
+      <br>
+      We cordially invite you to the beginning of our forever.
+    </p>
+
+    <div class="hero-names">
+      <div>
+        <div class="hero-name">Bhushan</div>
+        <p class="hero-caption">S/o Mr. Bhushan's Family</p>
+      </div>
+
+      <div>
+        <div class="hero-name">Pragyansa</div>
+        <p class="hero-caption">D/o Mr. Pragyansa's Family</p>
+      </div>
+    </div>
+
+    <button class="reveal-button" id="reveal">
+      ♥ &nbsp; I would love to reveal &nbsp; ♥
+    </button>
+
+  </div>
+</section>
+
+<!-- MAIN WEBSITE -->
+
+<div id="mainContent">
+
+  <!-- COUNTDOWN -->
+
+  <section id="countdown" class="section">
+
+    <div class="floral-corner floral-left"></div>
+    <div class="floral-corner floral-right"></div>
+
+    <div class="section-inner animate">
+
+      <div class="countdown-card">
+        <div class="label">SAVE THE DATE</div>
+        <div class="date" id="dateLabel">May 2026</div>
+      </div>
+
+      <div class="timer">
+
+        <div class="timer-unit">
+          <strong id="days">00</strong>
+          <span>DAYS</span>
+        </div>
+
+        <div class="timer-unit">
+          <strong id="hours">00</strong>
+          <span>HOURS</span>
+        </div>
+
+        <div class="timer-unit">
+          <strong id="minutes">00</strong>
+          <span>MINUTES</span>
+        </div>
+
+        <div class="timer-unit">
+          <strong id="seconds">00</strong>
+          <span>SECONDS</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MEET THE COUPLE -->
+
+  <section id="couple" class="section">
+
+    <div class="section-inner">
+
+      <div class="animate">
+        <p class="small-heading">The beginning of forever</p>
+        <h2 class="script-heading">Meet the Couple</h2>
+        <div class="ornament">✿</div>
+      </div>
+
+      <div class="couple-grid">
+
+        <article class="couple-card animate">
+
+          <h3 class="card-title">Pragyansa's Sweetheart</h3>
+
+          <img
+            src="assets/bride-illustration.jpg"
+            class="illustration"
+            alt="Bride illustration">
+
+          <div class="profile-name">Pragyansa</div>
+
+          <div class="tags">
+            <span class="tag">♡ Coffee</span>
+            <span class="tag">♡ Music</span>
+            <span class="tag">♡ Travel</span>
+            <span class="tag">♡ Shopping</span>
+            <span class="tag">♡ Travelling</span>
+            <span class="tag">♡ Cooking</span>
+          </div>
+
+          <p class="profile-caption">
+            "Your girl, your partner and your forever!"
+          </p>
+
+        </article>
+
+        <article class="couple-card animate">
+
+          <h3 class="card-title">Bhushan's Sweetheart</h3>
+
+          <img
+            src="assets/groom-illustration.jpg"
+            class="illustration"
+            alt="Groom illustration">
+
+          <div class="profile-name">Bhushan ♥</div>
+
+          <div class="tags">
+            <span class="tag">♡ Music</span>
+            <span class="tag">♡ Movies</span>
+            <span class="tag">♡ Travel</span>
+            <span class="tag">♡ Foodie</span>
+            <span class="tag">♡ Adventure</span>
+            <span class="tag">♡ Photography</span>
+          </div>
+
+          <p class="profile-caption">
+            "Your best friend, your partner and your forever!"
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FIRST INVITATION -->
+
+  <section id="first-invitation" class="section memory-section">
+
+    <div class="section-inner animate">
+
+      <p class="small-heading">A beautiful beginning</p>
+
+      <h2 class="script-heading">Our First Invitation</h2>
+
+      <div class="ornament">✿</div>
+
+      <div class="memory-image">
+        <img src="assets/first-invitation.jpg"
+             alt="First invitation">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FIRST PHOTO -->
+
+  <section id="first-photo" class="section memory-section">
+
+    <div class="section-inner animate">
+
+      <p class="small-heading">A moment to remember</p>
+
+      <h2 class="script-heading">Our First Photo</h2>
+
+      <div class="ornament">✿</div>
+
+      <div class="memory-image">
+        <img src="assets/first-photo.jpg"
+             alt="First photograph">
+      </div>
+
+      <p class="memory-caption">A memory for a lifetime</p>
+
+    </div>
+  </section>
+
+  <!-- ENGAGEMENT INVITATION -->
+
+  <section id="engagement" class="green-section">
+
+    <div class="section-inner animate">
+
+      <h2 class="script-heading">Events Schedule</h2>
+
+      <div class="ornament">✿</div>
+
+      <div class="engagement-art">
+        <img src="assets/engagement-invitation.jpg"
+             alt="Engagement invitation">
+      </div>
+
+      <p class="section-description">
+        Together with our families, we invite you to
+        celebrate our beautiful beginning.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- FAMILIES -->
+
+  <section id="families" class="section">
+
+    <div class="section-inner animate">
+
+      <h2 class="script-heading">The Families</h2>
+
+      <div class="ornament">✿</div>
+
+      <div class="family-box">
+
+        <h3>With Love and Blessings</h3>
+
+        <p>
+          We invite you to join us as we celebrate
+          this beautiful occasion.
+          <br>
+          Your presence and blessings mean the world to us.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WEDDING VENUE -->
+
+  <section id="venue" class="section">
+
+    <div class="section-inner animate">
+
+      <p class="small-heading">We would love to see you</p>
+
+      <h2 class="script-heading">Where We Celebrate</h2>
+
+      <div class="ornament">✿</div>
+
+      <div class="map">
+        <iframe
+          id="mapFrame"
+          title="Wedding venue map"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <a
+        id="directions"
+        class="map-button"
+        target="_blank"
+        rel="noopener">
+        GET DIRECTIONS
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>With love and blessings</p>
+
+    <div class="footer-names">
+      Bhushan & Pragyansa
+    </div>
+
+    <p>
+      Counting our blessings and celebrating our forever.
+      <br>
+      Thank you for being a part of our story.
+    </p>
+
+    <p style="margin-top:25px;font-size:10px;letter-spacing:2px">
+      MADE WITH LOVE ♥
+    </p>
+
+  </footer>
+
+</div>
+
+<!-- MUSIC -->
+
+<audio id="music" loop preload="none">
+  <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+
+<button
+  class="music-control"
+  id="musicControl"
+  aria-label="Play or pause music">
+  ♫
+</button>
+
+<script>
+
+/* ===================================
+   CONFIGURATION
+=================================== */
+
+const CONFIG = {
+
+  // Set the actual date and time.
+  // Format: YYYY-MM-DDTHH:MM:SS
+  weddingDate: "2026-05-16T09:00:00",
+
+  displayDate: "May 2026",
+
+  venue: "Hyderabad",
+
+  music: true,
+
+  flowerInterval: 650
+
+};
+
+/* ===================================
+   INITIAL LOADING
+=================================== */
+
+window.addEventListener("load", () => {
+
+  setTimeout(() => {
+
+    document.getElementById("loading").classList.add("hide");
+
+  }, 1800);
+
+});
+
+/* ===================================
+   INVITATION REVEAL
+=================================== */
+
+const revealButton = document.getElementById("reveal");
+
+revealButton.addEventListener("click", () => {
+
+  const main = document.getElementById("mainContent");
+
+  main.classList.add("active");
+
+  revealButton.textContent = "Invitation Revealed ♥";
+
+  revealButton.disabled = true;
+
+  document.getElementById("countdown").scrollIntoView({
+    behavior:"smooth"
+  });
+
+  startFlowers();
+
+});
+
+/* ===================================
+   COUNTDOWN
+=================================== */
+
+document.getElementById("dateLabel").textContent =
+  CONFIG.displayDate;
+
+function updateCountdown() {
+
+  const target = new Date(CONFIG.weddingDate).getTime();
+
+  const now = Date.now();
+
+  const diff = target - now;
+
+  if (isNaN(target) || diff <= 0) {
+
+    ["days","hours","minutes","seconds"].forEach(id => {
+      document.getElementById(id).textContent = "00";
+    });
+
+    return;
+
+  }
+
+  const values = {
+
+    days:Math.floor(diff / 86400000),
+
+    hours:Math.floor((diff / 3600000) % 24),
+
+    minutes:Math.floor((diff / 60000) % 60),
+
+    seconds:Math.floor((diff / 1000) % 60)
+
+  };
+
+  Object.entries(values).forEach(([id,value]) => {
+
+    document.getElementById(id).textContent =
+      String(value).padStart(2,"0");
+
+  });
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+/* ===================================
+   SCROLL REVEAL
+=================================== */
+
+const observer = new IntersectionObserver(entries => {
+
+  entries.forEach(entry => {
+
+    if (entry.isIntersecting) {
+
+      entry.target.classList.add("show");
+
+      observer.unobserve(entry.target);
+
+    }
+
+  });
+
+},{threshold:.12});
+
+document.querySelectorAll(".animate").forEach(element => {
+
+  observer.observe(element);
+
+});
+
+/* ===================================
+   FLOWER PARTICLES
+=================================== */
+
+let flowerTimer = null;
+
+function createFlower() {
+
+  const flower = document.createElement("span");
+
+  flower.className = "particle";
+
+  const flowers = ["🌸","🌺","🌼","✿","❀"];
+
+  flower.textContent =
+    flowers[Math.floor(Math.random()*flowers.length)];
+
+  flower.style.left = Math.random()*100+"vw";
+
+  flower.style.fontSize =
+    (8+Math.random()*10)+"px";
+
+  const duration = 7+Math.random()*7;
+
+  flower.style.animationDuration = duration+"s";
+
+  flower.style.setProperty(
+    "--drift",
+    (Math.random()*150-75)+"px"
+  );
+
+  document.getElementById("particles").appendChild(flower);
+
+  setTimeout(() => flower.remove(),duration*1000);
+
+}
+
+function startFlowers() {
+
+  if (flowerTimer) return;
+
+  flowerTimer = setInterval(
+    createFlower,
+    CONFIG.flowerInterval
+  );
+
+}
+
+startFlowers();
+
+/* ===================================
+   MAP
+=================================== */
+
+const mapQuery = encodeURIComponent(CONFIG.venue);
+
+document.getElementById("mapFrame").src =
+  "https://maps.google.com/maps?q="+mapQuery+"&z=14&output=embed";
+
+document.getElementById("directions").href =
+  "https://www.google.com/maps/search/?api=1&query="+mapQuery;
+
+/* ===================================
+   BACKGROUND MUSIC
+=================================== */
+
+const music = document.getElementById("music");
+
+const musicControl =
+  document.getElementById("musicControl");
+
+let playing = false;
+
+musicControl.addEventListener("click",async () => {
+
+  try {
+
+    if (!playing) {
+
+      await music.play();
+
+      playing = true;
+
+      musicControl.classList.add("playing");
+
+      musicControl.textContent = "♫";
+
+    } else {
+
+      music.pause();
+
+      playing = false;
+
+      musicControl.classList.remove("playing");
+
+      musicControl.textContent = "♪";
+
+    }
+
+  } catch(error) {
+
+    console.log("Music playback unavailable:",error);
+
+  }
+
+});
+
+if (!CONFIG.music) {
+
+  musicControl.style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>
